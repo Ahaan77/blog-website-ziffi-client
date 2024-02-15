@@ -1,12 +1,24 @@
-import { useContext } from "react"
+import { useContext, useState, useEffect } from "react"
 import { useNavigate } from "react-router-dom"
 import { BlogContext } from "../Context"
 import CreateButton from "./CreateButton"
+import { useQuery } from "@apollo/client"
+import { BLOGS_QUERY } from "../Queries"
 
-const Blogs = ({ blogList }) => {
+const Blogs = () => {
 
-    const { setBlog } = useContext(BlogContext)
+    const { setBlog } = useContext(BlogContext) //BlogContext set context 
+    const [blogList, setBlogList] = useState([]) //Populate Blogslist array
+    const { data } = useQuery(BLOGS_QUERY); //GraphQL get blogs data
     const navigate = useNavigate()
+
+    useEffect(() => {
+        if (data) {
+            console.log("check blog resp -->", data?.blogs)
+            setBlogList(data?.blogs)
+        }
+    }, [data])
+
 
     return (
         <>
