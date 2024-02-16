@@ -23,7 +23,7 @@ function App() {
   }
 
   return (
-    <div>
+    <div className='font-mono'>
       <BlogContext.Provider value={obj}>
         <Topbar />
         <div className=''>

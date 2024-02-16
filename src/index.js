@@ -5,6 +5,7 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { ApolloProvider, ApolloClient, InMemoryCache } from "@apollo/client";
 
+
 const client = new ApolloClient({
   uri: "https://blog-website-ziffi-production.up.railway.app/graphql",
   cache: new InMemoryCache()
