@@ -12,12 +12,15 @@ const Create = () => {
 
     const handleSubmit = (e) => {
         if (title.length !== 0 && content.length !== 0) {
-            e.preventDefault();
-            createBlog({ variables: { title, content, date: date } });
-            setSuccess(true)
+            try {
+                e.preventDefault();
+                createBlog({ variables: { title, content, date: date } });
+                setSuccess(true)
+            } catch (err) {
+                console.log(err)
+            }
         }
     };
-
 
     return (
         <div className="flex justify-center items-center h-full relative mt-20">
@@ -39,7 +42,6 @@ const Create = () => {
                         </div>
                     </a>
                 }
-
             </div>
         </div>
     )

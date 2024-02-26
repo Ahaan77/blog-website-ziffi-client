@@ -20,3 +20,14 @@ export const CREATE_BLOG = gql`
     }
   }
 `;
+
+export const GET_BLOG = gql`
+  mutation GetBlog($id: String!) {
+    getBlog(id: $id) {
+      title
+      content
+      date
+      id
+    }
+  }
+`;
