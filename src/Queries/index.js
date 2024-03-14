@@ -6,6 +6,7 @@ export const BLOGS_QUERY = gql`
       title
       id
       content
+      date
     }
   }  
 `;
